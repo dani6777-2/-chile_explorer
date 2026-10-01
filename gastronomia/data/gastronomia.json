@@ -1,0 +1,166 @@
+[
+    {
+        "id": 1,
+        "slug": "empanada-de-pino",
+        "nombre": "Empanada de Pino",
+        "region": "Todo Chile",
+        "tipo": "Comida tradicional",
+        "descripcion": "Masa horneada rellena de carne de vacuno picada con cebolla, huevo, aceituna y pasas. Acompaña las fiestas patrias de septiembre.",
+        "historia": "De origen español, se adaptó en Chile incorporando ingredientes locales y se consolidó como el plato nacional por excelencia.",
+        "ingredientes": [
+            "Carne molida",
+            "Cebolla",
+            "Huevo",
+            "Aceituna",
+            "Pasas",
+            "Harina",
+            "Comino"
+        ],
+        "imagen": "gastronomia/images/empanada-de-pino.jpg"
+    },
+    {
+        "id": 2,
+        "slug": "pastel-de-choclo",
+        "nombre": "Pastel de Choclo",
+        "region": "Zona central",
+        "tipo": "Plato de fondo",
+        "descripcion": "Capa de choclo molido y dulce cubriendo un pino de carne, pollo, huevo y aceitunas, gratinada al horno y servida en greda.",
+        "historia": "Nace de la fusión del pastel de maíz mapuche con el relleno español, popularizado en el siglo XIX.",
+        "ingredientes": [
+            "Choclo",
+            "Carne de vacuno",
+            "Pollo",
+            "Cebolla",
+            "Huevo",
+            "Aceituna",
+            "Azúcar"
+        ],
+        "imagen": "gastronomia/images/pastel-de-choclo.jpg"
+    },
+    {
+        "id": 3,
+        "slug": "cazuela",
+        "nombre": "Cazuela",
+        "region": "Todo Chile",
+        "tipo": "Plato de fondo",
+        "descripcion": "Caldo caliente con presa de ave o carne, papa, zapallo, choclo y arroz. El reconfortante 'plato de la casa' chileno.",
+        "historia": "De raíz mapuche-huinca, cada región le da su toque, pero siempre se sirve muy caliente.",
+        "ingredientes": [
+            "Pollo o vacuno",
+            "Papa",
+            "Zapallo",
+            "Choclo",
+            "Arroz",
+            "Cilantro"
+        ],
+        "imagen": "gastronomia/images/cazuela.jpg"
+    },
+    {
+        "id": 4,
+        "slug": "completo",
+        "nombre": "Completo",
+        "region": "Todo Chile",
+        "tipo": "Comida rápida",
+        "descripcion": "Hot dog recargado con palta, tomate y chucrut, coronado con mayonesa y mostaza. Ícono de la comida callejera chilena.",
+        "historia": "Heredado del hot dog estadounidense, en Chile se transformó en una versión con aderezos imposible de imitar.",
+        "ingredientes": [
+            "Pan de hot dog",
+            "Salchicha",
+            "Palta",
+            "Tomate",
+            "Chucrut",
+            "Mayonesa",
+            "Mostaza"
+        ],
+        "imagen": "gastronomia/images/completo.jpg"
+    },
+    {
+        "id": 5,
+        "slug": "curanto",
+        "nombre": "Curanto",
+        "region": "Chiloé",
+        "tipo": "Comida tradicional",
+        "descripcion": "Banquete cocido bajo tierra sobre piedras calientes: mariscos, carnes, papas, milcao y chapaleles. Fiesta de sabores sureños.",
+        "historia": "Técnica ancestral mapuche-williche heredada de la cultura chango, símbolo de la cocina chilota.",
+        "ingredientes": [
+            "Mariscos",
+            "Pollo",
+            "Cerdo",
+            "Papas",
+            "Milcao",
+            "Chapaleles",
+            "Piedras calientes"
+        ],
+        "imagen": "gastronomia/images/curanto.jpg"
+    },
+    {
+        "id": 6,
+        "slug": "sopaipillas",
+        "nombre": "Sopaipillas",
+        "region": "Todo Chile",
+        "tipo": "Entrada / aperitivo",
+        "descripcion": "Discos de masa frita hechos con zapallo y harina. Clásicas con pebre o chancaca en invierno, y protagonistas en fiestas patrias.",
+        "historia": "De origen morisco llegado con la colonia, el paladar chileno las adoptó como compañera de lluvia y celebración.",
+        "ingredientes": [
+            "Harina",
+            "Zapallo",
+            "Sal",
+            "Aceite",
+            "Chancaca o pebre"
+        ],
+        "imagen": "gastronomia/images/sopaipillas.jpg"
+    },
+    {
+        "id": 7,
+        "slug": "humitas",
+        "nombre": "Humitas",
+        "region": "Zona central y sur",
+        "tipo": "Comida tradicional",
+        "descripcion": "Choclo fresco molido condimentado con albahaca, envuelto en su propia hoja y cocido. Dulces o saladas, siempre con cariño.",
+        "historia": "De la palabra quechua 'huminta', es herencia andina presente en toda la cordillera de los Andes.",
+        "ingredientes": [
+            "Choclo",
+            "Cebolla",
+            "Albahaca",
+            "Manteca",
+            "Sal",
+            "Azúcar (opcional)"
+        ],
+        "imagen": "gastronomia/images/humitas.jpg"
+    },
+    {
+        "id": 8,
+        "slug": "charquican",
+        "nombre": "Charquicán",
+        "region": "Zona central",
+        "tipo": "Plato de fondo",
+        "descripcion": "Guiso campesino de papas, zapallo y carne deshidratada (charqui), decorado tradicionalmente con un huevo frito encima.",
+        "historia": "Plato criado en las faenas mineras y campesinas, hecho con ingredientes que se conservaban por largos viajes.",
+        "ingredientes": [
+            "Papas",
+            "Zapallo",
+            "Charqui o carne",
+            "Cebolla",
+            "Ají de color",
+            "Huevo frito"
+        ],
+        "imagen": "gastronomia/images/charquican.jpg"
+    },
+    {
+        "id": 9,
+        "slug": "mote-con-huesillos",
+        "nombre": "Mote con Huesillos",
+        "region": "Todo Chile",
+        "tipo": "Bebida / postre",
+        "descripcion": "Refrescante mezcla de duraznos deshidratados cocidos en almíbar con mote de trigo. El verano chileno en un vaso.",
+        "historia": "Nació como bebida de ferias y plazas, vendida por los clásicos 'moteros'. Dulce, frío y popular.",
+        "ingredientes": [
+            "Duraznos deshidratados",
+            "Mote de trigo",
+            "Azúcar",
+            "Canela",
+            "Agua"
+        ],
+        "imagen": "gastronomia/images/mote-con-huesillos.jpg"
+    }
+]

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Inicio · Chile Explorer{% endblock %}
+
+{% block header %}Bienvenidos a Chile Explorer{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <!-- Hero / presentación del sitio -->
+    <section class="hero d-flex align-items-center rounded-4 shadow-lg mb-5 overflow-hidden text-white">
+        <img src="{% static 'destinos/images/hero-chile.jpg' %}"
+             alt="Paisaje representativo de Chile con la cordillera de los Andes"
+             class="hero-fondo">
+        <div class="hero-contenido container position-relative py-5">
+            <span class="badge bg-warning text-dark mb-3">Guía informativa 🇨🇱</span>
+            <h2 class="display-5 fw-bold mb-3">Descubre Chile de norte a sur 🗺️</h2>
+            <p class="lead mb-0 col-lg-9">
+                Chile Explorer es una guía informativa sobre los destinos turísticos más
+                emblemáticos de Chile y la gastronomía típica que conquista a sus visitantes.
+                Desde el desierto de Atacama hasta la Patagonia, este sitio reúne
+                {{ total_destinos }} destinos y sus sabores tradicionales.
+            </p>
+            <div class="d-flex flex-wrap gap-2 mt-4">
+                <a href="{% url 'destinos:lista' %}" class="btn btn-light btn-lg px-4">Explorar destinos</a>
+                <a href="{% url 'gastronomia:lista' %}" class="btn btn-outline-light btn-lg px-4">Gastronomía chilena</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinos destacados -->
+    <section class="mb-4">
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h3 class="h4 fw-bold mb-0">Destinos destacados ⭐</h3>
+            <a href="{% url 'destinos:lista' %}" class="btn btn-sm btn-outline-primary">Ver todos</a>
+        </div>
+
+        {% if destacados %}
+            <div class="row g-4">
+                {% for destino in destacados %}
+                    <div class="col-md-4">
+                        <div class="card h-100 shadow-sm destino-card">
+                            <img src="{% static destino.imagen %}"
+                                 alt="{{ destino.nombre }}"
+                                 class="card-img-top">
+                            <div class="card-body">
+                                <span class="badge bg-primary mb-2">{{ destino.categoria.nombre }}</span>
+                                <h4 class="card-title h5">{{ destino.nombre }}</h4>
+                                <p class="card-text text-secondary small">
+                                    {{ destino.descripcion|truncatechars:110 }}
+                                </p>
+                                <a href="{% url 'destinos:detalle' destino.slug %}"
+                                   class="btn btn-sm btn-primary">Ver detalle</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-info">No hay destinos destacados disponibles en este momento.</div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %}

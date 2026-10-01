@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ plato.nombre }} · Chile Explorer{% endblock %}
+
+{% block header %}{{ plato.nombre }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'destinos:inicio' %}">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'gastronomia:lista' %}">Gastronomía</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ plato.nombre }}</li>
+        </ol>
+    </nav>
+
+    <div class="row g-5">
+        <div class="col-lg-6">
+            <img src="{% static plato.imagen %}"
+                 alt="{{ plato.nombre }}"
+                 class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge bg-danger fs-6">{{ plato.tipo.nombre }}</span>
+                <span class="badge bg-dark fs-6">📍 {{ plato.region }}</span>
+            </div>
+            <h2 class="h3 fw-bold mb-3">{{ plato.nombre }}</h2>
+            <p class="lead text-secondary">{{ plato.descripcion }}</p>
+
+            <h3 class="h5 fw-bold mt-4">🧅 Ingredientes principales</h3>
+            {% if plato.ingredientes.all %}
+                <ul class="list-group list-group-flush mb-3">
+                    {% for ingrediente in plato.ingredientes.all %}
+                        <li class="list-group-item ps-0">
+                            <span class="text-danger me-2">•</span>{{ ingrediente.nombre }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-secondary">Información de ingredientes próximamente.</p>
+            {% endif %}
+
+            <h3 class="h5 fw-bold mt-4">📖 Historia</h3>
+            <p class="text-secondary">{{ plato.historia }}</p>
+
+            <div class="d-flex flex-wrap gap-2 mt-3">
+                <a href="{% url 'gastronomia:lista' %}" class="btn btn-secondary">← Volver a gastronomía</a>
+                <a href="{% url 'gastronomia:modificar' %}" class="btn btn-warning text-dark">✏ Modificar</a>
+                <a href="{% url 'gastronomia:eliminar' %}" class="btn btn-danger">🗑 Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

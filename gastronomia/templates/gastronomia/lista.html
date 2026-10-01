@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Gastronomía · Chile Explorer{% endblock %}
+
+{% block header %}Gastronomía típica chilena{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'destinos:inicio' %}">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Gastronomía</li>
+        </ol>
+    </nav>
+
+    <div class="d-flex align-items-center gap-2 mb-3">
+        <h2 class="h3 fw-bold mb-0">Platos típicos</h2>
+        <span class="badge bg-primary rounded-pill">{{ total_platos }}</span>
+    </div>
+
+    <!-- Botones CRUD (visuales — funcionalidad en la siguiente evaluación) -->
+    <div class="d-flex flex-wrap gap-2 mb-4">
+        <a href="{% url 'gastronomia:agregar' %}" class="btn btn-success">
+            <span aria-hidden="true">+</span> Agregar
+        </a>
+        <a href="{% url 'gastronomia:modificar' %}" class="btn btn-warning text-dark">
+            <span aria-hidden="true">✏</span> Modificar
+        </a>
+        <a href="{% url 'gastronomia:eliminar' %}" class="btn btn-danger">
+            <span aria-hidden="true">🗑</span> Eliminar
+        </a>
+        <a href="{% url 'gastronomia:lista' %}" class="btn btn-info text-dark">
+            <span aria-hidden="true">🔍</span> Buscar
+        </a>
+    </div>
+
+    <p class="text-secondary mb-4">
+        Sabores de norte a sur: de la empanada al curanto, así se come en Chile.
+    </p>
+
+    <!-- Tipos disponibles -->
+    {% if tipos %}
+        <div class="mb-4">
+            {% for tipo in tipos %}
+                <span class="badge bg-light text-dark border me-1">{{ tipo }}</span>
+            {% endfor %}
+        </div>
+    {% endif %}
+
+    {% if platos %}
+        <div class="row g-4">
+            {% for plato in platos %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm plato-card">
+                        <img src="{% static plato.imagen %}"
+                             alt="{{ plato.nombre }}"
+                             class="card-img-top">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-danger">{{ plato.tipo.nombre }}</span>
+                                <span class="badge bg-light text-dark border">📍 {{ plato.region }}</span>
+                            </div>
+                            <h3 class="card-title h5">{{ plato.nombre }}</h3>
+                            <p class="card-text text-secondary small">
+                                {{ plato.descripcion|truncatechars:100 }}
+                            </p>
+                            <p class="card-text small mb-2">
+                                <strong>Ingredientes:</strong>
+                                {% for ingrediente in plato.ingredientes.all %}
+                                    <span class="badge bg-secondary-subtle text-secondary">{{ ingrediente.nombre }}</span>
+                                {% empty %}
+                                    <span class="text-secondary small">Sin ingredientes registrados.</span>
+                                {% endfor %}
+                            </p>
+                            <div class="d-flex flex-wrap gap-1">
+                                <a href="{% url 'gastronomia:detalle' plato.slug %}"
+                                   class="btn btn-sm btn-outline-danger">Ver receta</a>
+                                <a href="{% url 'gastronomia:modificar' %}"
+                                   class="btn btn-sm btn-outline-warning text-dark"
+                                   title="Modificar">✏</a>
+                                <a href="{% url 'gastronomia:eliminar' %}"
+                                   class="btn btn-sm btn-outline-danger"
+                                   title="Eliminar">🗑</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning">
+            No hay platos disponibles en este momento. Intenta nuevamente más tarde.
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

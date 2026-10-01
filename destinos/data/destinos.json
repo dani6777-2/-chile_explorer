@@ -1,0 +1,147 @@
+[
+    {
+        "id": 1,
+        "slug": "san-pedro-de-atacama",
+        "nombre": "San Pedro de Atacama",
+        "region": "Antofagasta",
+        "categoria": "Desierto",
+        "descripcion": "Oasis en medio del desierto más árido del mundo. Base perfecta para explorar géiseres, lagunas altiplánicas y el Valle de la Luna.",
+        "mejor_epoca": "Todo el año (días calurosos y noches frías)",
+        "actividades": [
+            "Tour al Valle de la Luna",
+            "Géiseres del Tatio",
+            "Lagunas altiplánicas",
+            "Observación astronómica"
+        ],
+        "imagen": "destinos/images/san-pedro-de-atacama.jpg",
+        "destacado": true
+    },
+    {
+        "id": 2,
+        "slug": "torres-de mi-casa",
+        "nombre": "Torres del Paine",
+        "region": "Magallanes",
+        "categoria": "Naturaleza",
+        "descripcion": "Parque nacional famoso por sus imponentes macizos graníticos, glaciares, lagos turquesa y fauna patagónica como guanacos y cóndores.",
+        "mejor_epoca": "Noviembre a marzo (verano austral)",
+        "actividades": [
+            "Trekking Circuito W",
+            "Navegación por el glaciar Grey",
+            "Avistamiento de fauna"
+        ],
+        "imagen": "destinos/images/torres-del-paine.jpg",
+        "destacado": true
+    },
+    {
+        "id": 3,
+        "slug": "valparaiso",
+        "nombre": "Valparaíso",
+        "region": "Valparaíso",
+        "categoria": "Ciudad",
+        "descripcion": "Ciudad portuaria declarada Patrimonio de la Humanidad por la UNESCO, con cerros coloridos, ascensores históricos, arte callejero y vida bohemia.",
+        "mejor_epoca": "Diciembre a marzo",
+        "actividades": [
+            "Recorrido por los cerros Alegre y Concepción",
+            "Paseo en ascensor",
+            "Grafitis y murales"
+        ],
+        "imagen": "destinos/images/valparaiso.jpg",
+        "destacado": true
+    },
+    {
+        "id": 4,
+        "slug": "isla-de-pascua",
+        "nombre": "Isla de Pascua",
+        "region": "Valparaíso",
+        "categoria": "Isla",
+        "descripcion": "Territorio insular en medio del Pacífico, conocido mundialmente por sus moáis, la cultura rapanui y playas paradisíacas.",
+        "mejor_epoca": "Todo el año (clima subtropical)",
+        "actividades": [
+            "Visitar Ahu Tongariki al amanecer",
+            "Volcán Rano Raraku",
+            "Playa Anakena"
+        ],
+        "imagen": "destinos/images/isla-de-pascua.jpg",
+        "destacado": false
+    },
+    {
+        "id": 5,
+        "slug": "pucon",
+        "nombre": "Pucón",
+        "region": "Araucanía",
+        "categoria": "Aventura",
+        "descripcion": "Villa turística a los pies del volcán Villarrica, ideal para deportes de aventura, termas naturales y bosques milenarios.",
+        "mejor_epoca": "Verano para trekking y termas; invierno para esquí",
+        "actividades": [
+            "Ascenso al volcán Villarrica",
+            "Termas géometricas",
+            "Parque Nacional Huerquehue"
+        ],
+        "imagen": "destinos/images/pucon.jpg",
+        "destacado": true
+    },
+    {
+        "id": 6,
+        "slug": "chiloe",
+        "nombre": "Chiloé",
+        "region": "Los Lagos",
+        "categoria": "Cultura",
+        "descripcion": "Archipiélago de mitos y leyendas, iglesias patrimoniales de madera, palafitos y una gastronomía marina única como el curanto.",
+        "mejor_epoca": "Primavera y verano",
+        "actividades": [
+            "Iglesias de Chiloé (UNESCO)",
+            "Palafitos de Castro",
+            "Mercado de Ancud"
+        ],
+        "imagen": "destinos/images/chiloe.jpg",
+        "destacado": false
+    },
+    {
+        "id": 7,
+        "slug": "valle-del-elqui",
+        "nombre": "Valle del Elqui",
+        "region": "Coquimbo",
+        "categoria": "Desierto",
+        "descripcion": "Valle de cielos despejados, pisco, pueblos de artistas y observatorios astronómicos en plena frontera del desierto florido.",
+        "mejor_epoca": "Todo el año",
+        "actividades": [
+            "Observatorio Mamalluca",
+            "Pisco Elqui",
+            "Ciclismo entre viñedos"
+        ],
+        "imagen": "destinos/images/valle-del-elqui.jpg",
+        "destacado": false
+    },
+    {
+        "id": 8,
+        "slug": "puerto-varas",
+        "nombre": "Puerto Varas",
+        "region": "Los Lagos",
+        "categoria": "Naturaleza",
+        "descripcion": "Ciudad de influencia alemana frente al lago Llanquihue con vistas al volcán Osorno, famosa por su repostería y navegación.",
+        "mejor_epoca": "Diciembre a febrero",
+        "actividades": [
+            "Lago Llanquihue",
+            "Parque Nacional Vicente Pérez Rosales",
+            "Saltos de Petrohué"
+        ],
+        "imagen": "destinos/images/puerto-varas.jpg",
+        "destacado": false
+    },
+    {
+        "id": 9,
+        "slug": "santiago",
+        "nombre": "Santiago de Chile",
+        "region": "Metropolitana",
+        "categoria": "Ciudad",
+        "descripcion": "Capital del país, rodeada por la cordillera de los Andes, con museos, cerros panorámicos, barrios gastronómicos y vida cultural intensa.",
+        "mejor_epoca": "Primavera y otoño",
+        "actividades": [
+            "Cerro San Cristóbal",
+            "Barrio Lastarria",
+            "Museo de la Memoria"
+        ],
+        "imagen": "destinos/images/santiago.jpg",
+        "destacado": false
+    }
+]

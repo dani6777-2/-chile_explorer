@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ destino.nombre }} · Chile Explorer{% endblock %}
+
+{% block header %}{{ destino.nombre }}{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'destinos:inicio' %}">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="{% url 'destinos:lista' %}">Destinos</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{ destino.nombre }}</li>
+        </ol>
+    </nav>
+
+    <div class="row g-5">
+        <div class="col-lg-6">
+            <img src="{% static destino.imagen %}"
+                 alt="{{ destino.nombre }}"
+                 class="img-fluid rounded shadow">
+        </div>
+        <div class="col-lg-6">
+            <div class="d-flex flex-wrap gap-2 mb-3">
+                <span class="badge bg-primary fs-6">{{ destino.categoria.nombre }}</span>
+                <span class="badge bg-dark fs-6">📍 {{ destino.region.nombre }}</span>
+                {% if destino.destacado %}
+                    <span class="badge bg-warning text-dark fs-6">⭐ Destacado</span>
+                {% endif %}
+            </div>
+            <h2 class="h3 fw-bold mb-3">{{ destino.nombre }}</h2>
+            <p class="lead text-secondary">{{ destino.descripcion }}</p>
+
+            <h3 class="h5 fw-bold mt-4">🗓️ Mejor época para visitar</h3>
+            <p>{{ destino.mejor_epoca }}</p>
+
+            <h3 class="h5 fw-bold mt-4">🎯 Actividades recomendadas</h3>
+            {% if destino.actividades.all %}
+                <ul class="list-group list-group-flush mb-3">
+                    {% for actividad in destino.actividades.all %}
+                        <li class="list-group-item ps-0">{{ actividad.nombre }}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-secondary">Información de actividades próximamente.</p>
+            {% endif %}
+
+            <div class="d-flex flex-wrap gap-2 mt-3">
+                <a href="{% url 'destinos:lista' %}" class="btn btn-secondary">← Volver a destinos</a>
+                <a href="{% url 'destinos:modificar' %}" class="btn btn-warning text-dark">✏ Modificar</a>
+                <a href="{% url 'destinos:eliminar' %}" class="btn btn-danger">🗑 Eliminar</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

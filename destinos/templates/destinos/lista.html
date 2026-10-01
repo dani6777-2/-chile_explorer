@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Destinos · Chile Explorer{% endblock %}
+
+{% block header %}Destinos turísticos de Chile{% endblock %}
+
+{% block content %}
+<div class="container">
+
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{% url 'destinos:inicio' %}">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Destinos</li>
+        </ol>
+    </nav>
+
+    <div class="d-flex align-items-center gap-2 mb-3">
+        <h2 class="h3 fw-bold mb-0">Todos los destinos</h2>
+        <span class="badge bg-primary rounded-pill">{{ total_destinos }}</span>
+    </div>
+
+    <!-- Botones CRUD (visuales — funcionalidad en la siguiente evaluación) -->
+    <div class="d-flex flex-wrap gap-2 mb-4">
+        <a href="{% url 'destinos:agregar' %}" class="btn btn-success">
+            <span aria-hidden="true">+</span> Agregar
+        </a>
+        <a href="{% url 'destinos:modificar' %}" class="btn btn-warning text-dark">
+            <span aria-hidden="true">✏</span> Modificar
+        </a>
+        <a href="{% url 'destinos:eliminar' %}" class="btn btn-danger">
+            <span aria-hidden="true">🗑</span> Eliminar
+        </a>
+        <a href="{% url 'destinos:lista' %}" class="btn btn-info text-dark">
+            <span aria-hidden="true">🔍</span> Buscar
+        </a>
+    </div>
+
+    <!-- Barra de búsqueda / filtros (GET, procesado en la vista con ORM) -->
+    <form method="get" action="{% url 'destinos:lista' %}" class="row g-2 mb-4 p-3 bg-light rounded-3 border border-light-subtle">
+        <div class="col-md-4">
+            <label for="buscar" class="form-label visually-hidden">Buscar destino</label>
+            <input type="search" id="buscar" name="q" class="form-control"
+                   placeholder="Buscar por nombre..." value="{{ texto_busqueda }}">
+        </div>
+        <div class="col-md-3">
+            <label for="filtro-region" class="form-label visually-hidden">Región</label>
+            <select id="filtro-region" name="region" class="form-select">
+                <option value="">Todas las regiones</option>
+                {% for region in regiones %}
+                    <option value="{{ region }}" {% if region == region_seleccionada %}selected{% endif %}>{{ region }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="filtro-categoria" class="form-label visually-hidden">Categoría</label>
+            <select id="filtro-categoria" name="categoria" class="form-select">
+                <option value="">Todas las categorías</option>
+                {% for categoria in categorias %}
+                    <option value="{{ categoria }}" {% if categoria == categoria_seleccionada %}selected{% endif %}>{{ categoria }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-md-2 d-grid">
+            <button type="submit" class="btn btn-primary">Filtrar</button>
+        </div>
+        {% if texto_busqueda or region_seleccionada or categoria_seleccionada %}
+            <div class="col-12">
+                <a href="{% url 'destinos:lista' %}" class="small">✕ Limpiar filtros</a>
+            </div>
+        {% endif %}
+    </form>
+
+    {% if destinos %}
+        <p class="text-secondary small mb-3">
+            Mostrando <strong>{{ total_destinos }}</strong> destino(s)
+            {% if texto_busqueda %}que coinciden con "{{ texto_busqueda }}"{% endif %}.
+        </p>
+        <div class="row g-4">
+            {% for destino in destinos %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 shadow-sm destino-card">
+                        <img src="{% static destino.imagen %}"
+                             alt="{{ destino.nombre }}"
+                             class="card-img-top">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary">{{ destino.categoria.nombre }}</span>
+                                {% if destino.destacado %}
+                                    <span class="badge bg-warning text-dark">⭐ Destacado</span>
+                                {% endif %}
+                            </div>
+                            <h3 class="card-title h5">{{ destino.nombre }}</h3>
+                            <p class="card-text small text-secondary mb-1">
+                                📍 <strong>{{ destino.region.nombre }}</strong>
+                            </p>
+                            <p class="card-text text-secondary small">
+                                {{ destino.descripcion|truncatechars:100 }}
+                            </p>
+                            <div class="d-flex flex-wrap gap-1">
+                                <a href="{% url 'destinos:detalle' destino.slug %}"
+                                   class="btn btn-sm btn-outline-primary">Ver más</a>
+                                <a href="{% url 'destinos:modificar' %}"
+                                   class="btn btn-sm btn-outline-warning text-dark"
+                                   title="Modificar">✏</a>
+                                <a href="{% url 'destinos:eliminar' %}"
+                                   class="btn btn-sm btn-outline-danger"
+                                   title="Eliminar">🗑</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning">
+            {% if texto_busqueda or region_seleccionada or categoria_seleccionada %}
+                No se encontraron destinos que coincidan con los filtros aplicados.
+                <a href="{% url 'destinos:lista' %}" class="alert-link">Limpiar filtros</a>.
+            {% else %}
+                No hay destinos disponibles en este momento. Intenta nuevamente más tarde.
+            {% endif %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
