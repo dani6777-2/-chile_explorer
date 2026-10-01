@@ -1,0 +1,30 @@
+# Entorno virtual
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+
+# Variables de entorno (secretos — nunca subir)
+.env
+
+# Base de datos
+db.sqlite3
+*.sqlite3
+
+# Sistema
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Archivos de migraciones generados localmente no aplicados
+# (las migraciones SÍ se versionan; esto es solo por seguridad)
+# migrations se versionan normalmente — no ignorar

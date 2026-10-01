@@ -1,0 +1,19 @@
+# Entorno virtual local (nunca debe entrar a la imagen)
+venv/
+
+# Caché de Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Base de datos (no utilizada, por seguridad tampoco se copia)
+db.sqlite3
+*.sqlite3
+
+# Archivos del sistema y del IDE
+.DS_Store
+.idea/
+.vscode/
+
+# Documentación de capturas (los placeholders no son necesarios en runtime)
+capturas/

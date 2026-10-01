@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Página no encontrada · Chile Explorer{% endblock %}
+
+{% block header %}Error 404{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center text-center">
+        <div class="col-md-7">
+            <div class="alert alert-warning shadow-sm p-4">
+                <h2 class="alert-heading mb-3">😕 ¡Vaya!</h2>
+                <p class="mb-3">
+                    La página o el elemento que estás buscando <strong>no existe</strong>
+                    o no fue encontrado.
+                </p>
+                <hr>
+                <p class="mb-0 small text-muted">
+                    Puede que el destino o plato que buscas haya sido eliminado o que la
+                    dirección contenga un error.
+                </p>
+                <a href="{% url 'destinos:inicio' %}" class="btn btn-primary mt-4">
+                    ← Volver al inicio
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

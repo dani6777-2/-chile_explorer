@@ -1,0 +1,11 @@
+# Pre-commit hooks — Ruff (lint + format), pinned to the same version
+# as ruff.toml. Se activa cuando este proyecto sea un repo git:
+#   git init && pre-commit install
+# Manual: pre-commit run --all-files
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.6
+    hooks:
+      - id: ruff
+        args: [--fix]
+      - id: ruff-format

@@ -1,0 +1,135 @@
+/* ============================================================
+   Chile Explorer - Estilos personalizados
+   Complementa Bootstrap (no lo reemplaza).
+   ============================================================ */
+
+/* Colores de la bandera de Chile */
+:root {
+    --azul-chile: #0033a0;
+    --rojo-chile: #d52b1e;
+    --blanco: #ffffff;
+}
+
+/* Barra de navegación con azul chileno */
+.bg-azul {
+    background-color: var(--azul-chile) !important;
+}
+
+.bg-azul .navbar-brand,
+.bg-azul .nav-link {
+    color: var(--blanco);
+}
+
+.bg-azul .nav-link:hover,
+.bg-azul .nav-link.active {
+    color: #ffd700; /* dorado sutil para el elemento activo */
+}
+
+/* Franja tricolor junto a la marca */
+.bandera {
+    display: inline-block;
+    width: 18px;
+    height: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: linear-gradient(
+        to bottom,
+        var(--azul-chile) 0 33%,
+        var(--blanco) 33% 66%,
+        var(--rojo-chile) 66% 100%
+    );
+    vertical-align: -1px;
+}
+
+/* Barra tricolor de acento bajo la navegación */
+.tricolor-bar {
+    height: 5px;
+    background: linear-gradient(
+        to right,
+        var(--azul-chile) 0 34%,
+        var(--blanco) 34% 66%,
+        var(--rojo-chile) 66% 100%
+    );
+}
+
+/* Encabezado de cada página */
+header h1 {
+    color: var(--azul-chile);
+}
+
+/* Hero (portada) */
+.hero {
+    position: relative;
+    min-height: 420px;
+    background-color: #0d1b3e; /* respaldo mientras carga la imagen */
+}
+
+.hero-fondo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.55; /* oscurece la foto para legibilidad del texto */
+}
+
+.hero-contenido {
+    z-index: 1;
+}
+
+/* Tarjetas de destinos y platos */
+.destino-card,
+.plato-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.destino-card:hover,
+.plato-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+}
+
+.destino-card .card-img-top,
+.plato-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.destino-card:hover .card-img-top,
+.plato-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* Contenedor para el efecto zoom sin desbordar la tarjeta */
+.destino-card,
+.plato-card {
+    overflow: hidden;
+}
+
+/* Botones con acento chileno */
+.btn-primary {
+    background-color: var(--azul-chile);
+    border-color: var(--azul-chile);
+}
+
+.btn-primary:hover {
+    background-color: #00288a;
+    border-color: #00288a;
+}
+
+/* Espaciado general */
+main {
+    min-height: 60vh;
+}
+
+/* Pie de página */
+footer {
+    background-color: #0d1b3e !important;
+}
+
+/* Responsive: párrafos más legibles en pantallas pequeñas */
+@media (max-width: 576px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+}

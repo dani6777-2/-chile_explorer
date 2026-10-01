@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Chile Explorer: guía informativa de destinos turísticos y gastronomía típica de Chile.">
+    <title>{% block title %}Chile Explorer{% endblock %}</title>
+
+    <!-- Bootstrap local (sin CDN) -->
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="{% static 'css/custom.css' %}">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- Navegación global -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-azul shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="{% url 'destinos:inicio' %}">
+                <span class="bandera"></span> Chile Explorer
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
+                    aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'inicio' %}active{% endif %}"
+                           href="{% url 'destinos:inicio' %}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.namespace == 'destinos' and request.resolver_match.url_name != 'inicio' %}active{% endif %}"
+                           href="{% url 'destinos:lista' %}">Destinos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.namespace == 'gastronomia' %}active{% endif %}"
+                           href="{% url 'gastronomia:lista' %}">Gastronomía</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Barra tricolor de acento -->
+    <div class="tricolor-bar" aria-hidden="true"></div>
+
+    <!-- Encabezado de la página (bloque redefinible) -->
+    <header class="py-4 bg-light border-bottom">
+        <div class="container">
+            <h1 class="h2 mb-0">{% block header %}Chile Explorer{% endblock %}</h1>
+        </div>
+    </header>
+
+    <!-- Contenido dinámico de cada página -->
+    <main class="flex-grow-1 py-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Pie de página -->
+    <footer class="bg-dark text-center text-white py-4 mt-auto">
+        <div class="container">
+            <p class="mb-1 fw-bold">🇨🇱 Chile Explorer</p>
+            <p class="mb-0 small text-secondary">
+                Sitio informativo desarrollado con Django · Templates con herencia · Bootstrap local
+            </p>
+            <p class="mb-0 small text-secondary">© <span id="anio-actual"></span> Chile Explorer</p>
+        </div>
+    </footer>
+
+    <!-- Botón para volver arriba (controlado por custom.js) -->
+    <button type="button" id="btn-volver-arriba" class="btn btn-primary position-fixed bottom-0 end-0 m-3 shadow d-none"
+            title="Volver arriba" aria-label="Volver arriba">
+        ↑
+    </button>
+
+    <!-- Bootstrap local JS -->
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- JavaScript personalizado -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

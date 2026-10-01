@@ -1,0 +1,32 @@
+# Docker Compose para Chile Explorer
+# Opción 1 (por defecto): SQLite local — sin servicios adicionales.
+# Opción 2 (EC2/demo): descomentar el servicio MySQL y usar .env con MySQL.
+services:
+  web:
+    build: .
+    container_name: chile_explorer
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    restart: unless-stopped
+    env_file:
+      - .env
+
+  # Descomentar para usar MySQL en lugar de SQLite:
+  # mysql:
+  #   image: mysql:8.0
+  #   container_name: chile_explorer_mysql
+  #   environment:
+  #     MYSQL_DATABASE: chile_explorer
+  #     MYSQL_USER: chile_explorer_user
+  #     MYSQL_PASSWORD: tu_password_seguro
+  #     MYSQL_ROOT_PASSWORD: root_password_seguro
+  #   ports:
+  #     - "3306:3306"
+  #   volumes:
+  #     - mysql_data:/var/lib/mysql
+  #   restart: unless-stopped
+
+# volumes:
+#   mysql_data:
